@@ -4,6 +4,19 @@ var tableData = data;
 // select table body
 var tbody = d3.select("#tableBody");
 
+//create the table the first time...
+tableData.forEach((tableData) => {
+
+  //append one row per entry in data.js
+  var row = tbody.append("tr");
+
+  //append one cell per item in data.js
+  Object.entries(tableData).forEach(([key,value]) => {
+    var cell = row.append("td");
+    cell.text(value);
+  })
+});
+
 //function for entire data entry process
 function handleSubmit() {
 
